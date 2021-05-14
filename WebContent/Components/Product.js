@@ -32,6 +32,7 @@ $(document).on("click", "#btnSave", function(event) {
 		data : $("#Product").serialize(),
 		dataType : "text",
 		complete : function(response, status) {
+			console.log(response);
 			onItemSaveComplete(response.responseText, status);
 		}
 	});

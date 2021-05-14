@@ -39,7 +39,7 @@ public class ProductService {
 	@Produces(javax.ws.rs.core.MediaType.TEXT_PLAIN)
 	public String insertProduct(
 				@FormParam("product_Name") String product_Name,
-				@FormParam("product_category") String product_category,
+				@FormParam("product_Category") String product_category,
 				@FormParam("product_Price") String price,
 				@FormParam("product_Description") String description) {
 		

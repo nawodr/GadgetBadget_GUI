@@ -41,8 +41,8 @@ public class ProductServlet {
 			preparedStmt.execute();
 			con.close();
 
-			String newOrder = readProducts(); 
-			 output = "{\"status\":\"success\", \"data\": \"" + newOrder + "\"}"; 
+			String newProducts = readProducts(); 
+			 output = "{\"status\":\"success\", \"data\": \"" + newProducts + "\"}"; 
 			
 		} catch (Exception e) {
 			output = "Error while inserting the item.";
@@ -61,8 +61,9 @@ public class ProductServlet {
 				return "Error while connecting to the database for reading.";
 			}
 			// Prepare the html table to be displayed
-			output = "<table border='1'><tr><th>Product ID</th><th>Product Name</th>" + "<th>Product Category</th>"
-					+ "<th>Product Price</th><th>Product Description</th>";
+			output = "<table border='1'>"
+					+ "<tr><th>Product ID</th><th>Product Name</th>" + "<th>Product Category</th>"
+					+ "<th>Product Price</th><th>Product Description</th><th>Update</th><th>Delete</th></tr>";
 
 			String query = "select * from products";
 
@@ -89,7 +90,6 @@ public class ProductServlet {
 			con.close();
 			// Complete the html table
 			output += "</table>";
-//			System.out.println("cc");
 
 		} catch (Exception e) {
 			output = "Error while reading the Product.";
